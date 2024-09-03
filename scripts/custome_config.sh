@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # lang
-cat << 'EOF' | tee config/rockchip/02-luci_lang
+cat << 'EOF' | tee configs/rockchip/02-luci_lang
 # CONFIG_LUCI_LANG_bg is not set
 # CONFIG_LUCI_LANG_ca is not set
 # CONFIG_LUCI_LANG_cs is not set
