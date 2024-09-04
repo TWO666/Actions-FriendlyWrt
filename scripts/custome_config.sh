@@ -37,7 +37,6 @@ sed -i -e 's/CONFIG_IB=y/# CONFIG_IB is not set/g' configs/rockchip/01-nanopi
 sed -i -e 's/CONFIG_SDK=y/# CONFIG_SDK is not set/g' configs/rockchip/01-nanopi
 
 sed -i -e 's/CONFIG_TARGET_ROOTFS_PARTSIZE=512/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g' configs/rockchip/01-nanopi
-sed -i -e 's/# CONFIG_TARGET_ROOTFS_SQUASHFS is not set/CONFIG_TARGET_ROOTFS_SQUASHFS=y/g' configs/rockchip/01-nanopi
 sed -i -e 's/CONFIG_PACKAGE_luci-app-adblock=y/# CONFIG_PACKAGE_luci-app-adblock is not set/g' configs/rockchip/01-nanopi
 sed -i -e 's/CONFIG_PACKAGE_luci-app-aria2=y/# CONFIG_PACKAGE_luci-app-aria2 is not set/g' configs/rockchip/01-nanopi
 sed -i -e 's/CONFIG_PACKAGE_luci-app-ddns=y/# CONFIG_PACKAGE_luci-app-ddns is not set/g' configs/rockchip/01-nanopi
