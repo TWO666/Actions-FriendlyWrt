@@ -1,19 +1,24 @@
 #!/bin/bash
 
-# {{ Add luci-app-diskman
-(cd friendlywrt && {
-    mkdir -p package/luci-app-diskman
-    wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
-    mkdir -p package/parted
-    wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
-})
+# # {{ Add luci-app-diskman
+# (cd friendlywrt && {
+#     mkdir -p package/luci-app-diskman
+#     wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
+#     mkdir -p package/parted
+#     wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
+# })
+# cat >> configs/rockchip/01-nanopi <<EOL
+# CONFIG_PACKAGE_luci-app-diskman=y
+# CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
+# CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
+# CONFIG_PACKAGE_smartmontools=y
+# EOL
+# # }}
+
 cat >> configs/rockchip/01-nanopi <<EOL
-CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
 CONFIG_PACKAGE_smartmontools=y
 EOL
-# }}
+
 
 # {{ Add luci-theme-argon
 (cd friendlywrt/package && {
@@ -31,4 +36,12 @@ function init_theme() {
 }
 EOL
 sed -i -e '/boardname=/r /tmp/appendtext.txt' friendlywrt/target/linux/rockchip/armv8/base-files/root/setup.sh
+# }}
+
+# {{ Add luci-app-argon-config
+(cd friendlywrt/package && {
+    [ -d luci-app-argon-config ] && rm -rf luci-app-argon-config
+    git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth 1 -b master
+})
+echo "CONFIG_PACKAGE_luci-app-argon-config=y" >> configs/rockchip/01-nanopi
 # }}
