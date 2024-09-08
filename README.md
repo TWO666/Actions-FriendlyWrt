@@ -1,3 +1,40 @@
+# Fork FriendlyELEC 编译R4SE固件
+
+`build.yml` 施工中
+
+
+## 特性
+
+在FriendlyWrt 23.05 docker版本基础上：
+
+- 去除`luci-app-adblock`
+- 去除`luci-app-aria2`
+- 去除`luci-app-ddns`
+- 去除`luci-app-smartdns`
+- 去除`luci-app-nft-qos`
+- 去除`luci-app-sqm`
+- 去除`luci-app-samba4`
+- 保留en、zh_Hans语言包，去除其他语言包
+- 保留`luci-app-diskman`
+- 保留`luci-theme-argon`
+- 添加`luci-app-argon-config`(unsplash源修改)
+- 添加`luci-app-turboacc`(无DNS相关功能)
+- 添加`luci-app-passxxxx`(仅x)
+
+## 说明
+- **刷机有风险，操作需谨慎**
+- 仅用于`R4SE`
+- 提供`Windows`和`Linux`平台的`USB线刷`固件
+- img镜像可用于eMMC和SD，若要从eMMC启动并使用SD卡扩展存储，`务必不带系统并使用GPT分区`
+- `不支持SD刷eMMC`
+- 线刷之前，请`务必拔出SD卡`
+- `Linux线刷`，下载解压，进入`MaskRom`模式（参照[官方教程](https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R4SE/zh#.E6.96.B9.E6.B3.953:_.E9.80.9A.E8.BF.87USB.E7.83.A7.E5.86.99)），运行`./R4SE_flash.sh`。
+- `Linux线刷`（仅支持单设备刷写）（其他问题提issue）
+- `Windows线刷`，参照[官方教程](https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R4SE/zh#.E6.96.B9.E6.B3.953:_.E9.80.9A.E8.BF.87USB.E7.83.A7.E5.86.99)
+- `不接受任何添加软件包添加特性的请求`
+- 不定期更新（当前更新时间：2024.09.08）
+
+
 # 使用 GitHub Actions 编译 FriendlyWrt
 [English](README_en.md)
 ### 基本信息 
